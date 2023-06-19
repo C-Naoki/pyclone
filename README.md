@@ -34,4 +34,4 @@ During execution, PyClone will ask for a virtual environment name, which will al
 
 ## Support
 
-If you encounter any issues while using PyClone, or if you have suggestions for new features, please submit an issue on this repository. We appreciate your feedback and contributions!
+If you encounter any issues while using PyClone, or if you have suggestions for new features, please submit an issue on this repository. I appreciate your feedback and contributions!
