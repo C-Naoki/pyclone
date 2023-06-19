@@ -1,6 +1,6 @@
 pyclone() {
     git_flag=0
-    default_dir_name="test"
+    default_dir_name=${DEFAULT_VENV:-"test"}
     default_publish="no"
 
     if [ -z "${PYCLONE_PATH}" ]; then

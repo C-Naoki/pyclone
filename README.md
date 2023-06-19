@@ -16,10 +16,11 @@ pyclone() {
 
 ## Environment Variables
 
-There are two environment variables that need to be defined to use PyClone:
+There are three environment variables that need to be defined to use PyClone:
 
 - `PYCLONE_PATH`: This variable should contain the path to the directory where you want your new project directories to be created.
 - `GITHUB_TOKEN`: This should contain your GitHub access token. This token will be used when creating a new repository on GitHub. For more information on GitHub access tokens, [click here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+- `DEFAULT_VENV`: This variable should contain the default name for the virtual environment. If not defined, "test" will be used as the default name.
 
 ## Usage
 
