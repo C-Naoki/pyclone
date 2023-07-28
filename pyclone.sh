@@ -69,9 +69,9 @@ pyclone() {
     cd $dir_name
     sed -i "" "s/my-python-templete/$dir_name/g" pyproject.toml
     rm -rf .git
+    git init
 
     make install
-    git init
 
     echo "# $dir_name" > README.md
 
