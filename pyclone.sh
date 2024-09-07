@@ -85,6 +85,26 @@ pyclone() {
   # Initialize README.md
   echo "# $dir_name" > README.md
 
+  # get name and email from git configuraion
+  git_name=$(git config user.name)
+  git_email=$(git config user.email)
+
+  # escape special characters
+  escaped_git_name=$(printf '%s\n' "$git_name" | sed -e 's/[]\/$*.^[]/\\&/g');
+  escaped_git_email=$(printf '%s\n' "$git_email" | sed -e 's/[]\/$*.^[]/\\&/g');
+
+  if [ -n "$git_name" ] && [ -n "$git_email" ]; then
+    # update authors line in pyproject.toml
+    sed -i '' '/^authors = /c\
+authors = ["'"$escaped_git_name"' <'"$escaped_git_email"'>"]\'$'\n' pyproject.toml
+    echo "pyproject.toml has been updated with the following author information:"
+    echo "\"$git_name <$git_email>\""
+  else
+    # remove authors line in pyproject.toml
+    sed -i '' '/^authors =/d' pyproject.toml
+    echo "Git user information not found. The authors line has been removed from pyproject.toml."
+  fi
+
   if [ $git_flag -eq 1 ]; then
       repo_check_file="repo_check_$$.txt"
       python -c "
